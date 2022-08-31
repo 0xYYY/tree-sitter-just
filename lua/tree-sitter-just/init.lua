@@ -21,18 +21,13 @@ function M.setup(arg)
 	local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 	parser_config.just = {
 		install_info = {
-			url = arg["local"] and join_paths(
-				vim.fn.stdpath("data"),
-				"site",
-				"pack",
-				"packer",
-				"start",
-				"tree-sitter-just"
-			) or "https://github.com/IndianBoy42/tree-sitter-just", -- local path or git repo
+			url = arg["local"]
+					and join_paths(vim.fn.stdpath("data"), "site", "pack", "packer", "start", "tree-sitter-just")
+				or "https://github.com/0xYYY/tree-sitter-just", -- local path or git repo
 			files = { "src/parser.c", "src/scanner.cc" },
 			branch = "main",
 		},
-		maintainers = { "@IndianBoy42" },
+		maintainers = { "@0xYYY" },
 	}
 	local ok, ft = pcall(require, "filetype")
 	if ok then
